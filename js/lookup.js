@@ -14,7 +14,7 @@ $(document).ready( function (){
 	i= 1;
 	var getdata = function(e){
 		isbn = $('#isbn').val();
-		var queryUrl = "http://xisbn.worldcat.org/webservices/xid/isbn/"+isbn+"?method=getMetadata&format=json&fl=*";
+		var queryUrl = "https://cors-anywhere.herokuapp.com/http://xisbn.worldcat.org/webservices/xid/isbn/"+isbn+"?method=getMetadata&format=json&fl=*";
 		$.ajax({
 			beforeSend: function() { $('#wait').show(); },
 			url: queryUrl,
