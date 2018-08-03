@@ -3,15 +3,8 @@
 <head>
   <title>LibRequest - Request your library</title>
   	<meta charset="utf-8">
-  	<meta name="format-detection" content="telephone=no" />
-    <meta name="msapplication-tap-highlight" content="no" />
-    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
-    <!-- This is a wide open CSP declaration. To lock this down for production, see below. -->
-   <!--  <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" /> -->
-  	<!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
   	<link rel="stylesheet" href="css/bootstrap.min.css"/>
-  	<link rel="stylesheet" href="css/extrastyle.css"/>
-  <!-- 	<link rel="stylesheet" type="text/css" href="css/ionic.min.css"/> -->
   	<link href="http://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet"/>
   	<link rel="stylesheet" href="css/style.css"/>
   	<script type="text/javascript" src="js/jquery.min.js"></script>
@@ -24,230 +17,53 @@
  	<script type="text/javascript" src="js/vfs_fonts.js"></script>
 	<script type="text/javascript" src="js/lookup.js"></script>
 	<script type="text/javascript" src="js/pdf.js"></script>
-	<script type="text/javascript" src="js/index.js"></script>
-	<script src="http://172.16.25.151:8080/target/target-script-min.js#anonymous"></script>
-	<script type="text/javascript" src="cordova.js"></script>
-	
 </head>
 <body>
-<!-- <div class="navbar">
- <h1>LibRequest</h1>
-</div> -->	
-<div id="welcome" class="modal fullscreen-modal modal-lg fade bg-3" role="dialog">
-		  <div class="modal-dialog">
-		    <!-- Modal content-->
-		    <div class="modal-content">
-			    <div class="modal-header text-center">
-			        <button type="button" class="close" data-dismiss="modal">&times;</button>
-			        <h4 class="modal-title">Hi!</h4>
-			    </div>
-			    <div class="modal-body">
-					<form id="requesterDetails" role="form" class="form">
-				<fieldset>
-					<div class="control-group">
-						<div class="form-group">
-							<div class="controls">
-							<label>Name*:&nbsp; </label><input type="text" class="input-large" name='name' id='Name' placeholder='Enter Name'><br/></div>
-							<div class="controls"><label>Email*:&nbsp;</label><input type="email" class="input-large" name='email' id='Email' placeholder='Enter verfiable email'></div>
-							<div class="controls"><label>Library Name:&nbsp;</label><input type="text" class="input-large"  id='libraryname' placeholder='Enter name of library'></div>
-							<div class="controls"><label>Institute Name:&nbsp;</label><input type="text" class="input-large" id='institutename' placeholder='Enter name of institute'></div>
-						</div>
-					</div>
-				</fieldset>
-			</form>
-				</div>
-			    <div class="modal-footer">
-					<button class="btn btn-success text-center" type="button" data-dismiss="modal" onclick="adduser()">Save</button>
-			        </div>
-			    </div>
+		<!-- Navbar -->
+		<nav class="navbar navbar-default navbar-fixed-top">
+		  <div class="container">
+			<div class="navbar-header">
+			  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			  </button>
+			  <a class="navbar-brand" href="#">LibRequest</a>
 			</div>
-</div>
-
-
-
-
-
-<nav class="navbar navbar-default navbar-fixed-top navbar-md">
-  <div class="container-fluid">
-    <div class="navbar-header">
-    <button type="button" class="navbar-toggle sidebar-toggle left-menu-bar-btn">  <span class="icon-bar">
-               </span> 
-               <span class="icon-bar">
-               </span> 
-               <span class="icon-bar">
-               </span> </button> <span class="navbar-brand"><!-- <img alt="Brand" src="..."> -->LibRequest
-     </span>
-       <div class="dropdown pull-right"> </div>
-    </div>
-    <div id="navbar" class="navbar-collapse collapse">
-       <ul class="nav navbar-nav"> </ul>
-    </div>
-  </div>
-</nav>
-   
-
-
-
-
-
-
-
-
-
-<div class="sidebar-overlay"></div>
-      <aside id="sidebar" class="sidebar sidebar-colored-inverse sidebar-fixed-left" role="navigation">
-         <!-- Sidebar header -->
-		   		 <div class="sidebar-header header-cover" style="background-image: url(img/sidebar-header.jpg);">
-		        <!-- Top bar -->
-		        <div class="top-bar"></div>
-		        <!-- Sidebar toggle button -->
-		        <button type="button" class="sidebar-toggle">
-		            <span class="glyphicon glyphicon-menu-left"></span>
-		        </button>
-		        <!-- Sidebar brand image -->
-		        <div class="sidebar-image">
-		            <img src="icon.png">
-		        </div>
-		        <!-- Sidebar brand name -->
-		        <p class="sidebar-brand"><strong></strong></p><br>
-		        <a data-toggle="dropdown" class="sidebar-brand" href="#">
-		            
-		            <!-- <b class="caret"></b> -->
-		        </a>
-		    </div>
-
-         <ul class="nav sidebar-nav">
-				<li>
-                    <!-- <a href="#" data-toggle="modal" data-target="#about">  -->
-                    <a href="#" id="about2">
-               			<span class="glyphicon glyphicon-phone">
-               			</span>&nbsp; About App </a>
-                </li>
-                             
-                <li> <a href="#" id="contact2"> 
-               <span class="glyphicon glyphicon-earphone">
-               </span>&nbsp; Contact </a> 
-            </li>
-            
-            <li>
-               <a href="#" id="isbn2">
-               <span class="glyphicon glyphicon-question-sign">
-               </span>&nbsp; What is ISBN?</a>
-            </li>
-
-            <li class="divider"></li>
-            <li>  <a href="#" id="settings2">
-               <span class="glyphicon glyphicon-cog">
-               </span>&nbsp; Settings </a> 
-            </li>
-         </ul>
-      </aside>
-
-
-      <aside id="about" class="page sidebar sidebar-default sidebar-fixed-right" role="navigation">
-         <!-- Sidebar header -->
-			<nav class="navbar navbar-default navbar-fixed-top navbar-md">
-			  <div class="container-fluid">
-			    <div class="navbar-header">
-			    <span class="navbar-brand"><button class="btn btn-link" onclick="remove()"><span class="glyphicon glyphicon-triangle-left"></span></button> About App
-			     </span>
-			  </div>
-			</nav>
-		    <br><br>
-		    <div class="container-fluid-1" >LibRequest is the app for library users to request books for purchase in their library without filing up long entry forms.<br>
-		    <p>The app uses ISBN as seed to fetch out the full bibliographic details of the book and saves the records. The added records can be downloaded as PDF file.</p>
-		    <p>ISBN can be either entered directly in the inputbar or can be scanned using camera.</p>
-		    <strong>App Fetures</strong>
-		    <ul>	
-		    	<li>Scanning ISBN Barcode</li>
-		    	<li>Input ISBN code</li>
-		    	<li>Save the records</li>
-		    	<li>Download added records as a prinatble PDF</li>
-		    </ul>
-		    </div>
-
-         
-      </aside>
-      <aside id="contact" class="page  sidebar sidebar-default sidebar-fixed-right" role="navigation">
-         <!-- Sidebar header -->
-			<nav class="navbar navbar-default navbar-fixed-top navbar-md">
-			  <div class="container-fluid">
-			    <div class="navbar-header">
-			    <span class="navbar-brand"><button class="btn btn-link" onclick="remove()"><span class="glyphicon glyphicon-triangle-left"></span></button> Contact
-			     </span>
-			  </div>
-			</nav>
-		    <br><br>
-		    <div class="container-fluid-1" ><p>Should you have any queries please feel free to contact at: <br> 
-		    <address>
-			  <strong>Dr. Vinit Kumar</strong><br>
-			  Dr Ranganathan Institute of Library and Information Science<br>
-			  Bundelkhand University, Jhansi U.P. 284128<br>
-			  Mobile: (+91) 9454120174<br>
-			  <a href="mailto:#">vinitbhu06@gmail.com</a>
-			</address>
+			<div class="collapse navbar-collapse" id="myNavbar">
+			  <ul class="nav navbar-nav navbar-right">
+				<li><a href="#about">About</a></li>
+				<li><a href="#why">Why</a></li>
+				<li><a href="#help">Help</a></li>
+			  </ul>
 			</div>
-
-         
-      </aside>
-        <aside id="whatisisbn" class="page  sidebar sidebar-default sidebar-fixed-right" role="navigation">
-     <!-- Sidebar header -->
-		<nav class="navbar navbar-default navbar-fixed-top navbar-md">
-		  <div class="container-fluid">
-		    <div class="navbar-header">
-		    <span class="navbar-brand"><button class="btn btn-link" onclick="remove()"><span class="glyphicon glyphicon-triangle-left"></span></button> What is ISBN?
-		     </span>
 		  </div>
 		</nav>
-	    <br><br>
-	    <div class="container-fluid-1" ><p>International Standard Book Number is a unique identifier used for commercial books. It is encoded in an EAN-13 format. Several national and international agencies provide ISBN to publishers.</p><p>You can easily find this code in the back of the book.</p><br><img src="img/barcode.jpg"><br>
-	    <ol><li>ISBN Code</li><li>	Human Readable Text (optional)</li><li>Pricing Supplemental Code</li></ul></div>
+		<!-- Navbar ends here -->
 
-         
-      </aside>
-      <aside id="settingpage" class="page sidebar-default sidebar-fixed-right" role="navigation">
-     <!-- Sidebar header -->
-		<nav class="navbar navbar-default navbar-fixed-top navbar-md">
-		  <div class="container-fluid">
-		    <div class="navbar-header">
-		    <span class="navbar-brand"><button class="btn btn-link" onclick="remove()"><span class="glyphicon glyphicon-triangle-left"></span></button>Settings
-		     </span>
-		  </div>
-		</nav>
-	    <br><br>
-	    <div class="container-fluid-1" ><strong>Name: </strong><span id='setname'></span><br><strong>Email: </strong><span id='setemail'></span><br><strong>Library: </strong><span id='setlibrary'></span><br><strong>Institution: </strong><span id='setinsti'></span><br>
-
-	     <a href="#" data-toggle="modal" data-target="#welcome"><span class="glyphicon glyphicon-edit"></span>Edit</a></div>
-
-         
-      </aside>
-
-
-
-
-<div class="container-fluid bg-1"> <!-- main container starts here -->
+<div class="container"> <!-- main container starts here -->
 <!-- <div class="page-header">
 			    <h1>Request your library</h1>
 			    <p></p>
-		    </div> -->
-<!-- First Container -->
-		<div class="container-fluid bg-1 text-center"><h3 id="intro">LibRequest helps you to recommend a list of books for your library in a format that your library understands and would love to process.</h3>
-		<div class="container-fluid-1  text-center">
+		    </div>	 -->
+<!-- First Container --><a name="about"></a>
+		<div class="container-fluid bg-1 text-center"><h3>LibRequest helps you to recommend a list of books for your library in a format that your library understands and would love to process.</h3>
+		<div class="container-fluid bg-2 text-center">
 		<!-- Form starts here -->
 			<form  id="myForm" role="form" class="form">
 				<fieldset>
 					<!-- <legend>Enter the fields below.<small></small></legend> -->
 					<div class="form-group">
-						
-						<!-- <label  for="isbn" style="color: white">Enter ISBN</label> -->
-						<input style="border: 0; border-radius:2px 0px 0px 2px; " type="text" class="input-sm" name="isbn" id='isbn' placeholder='Enter ISBN(9781000000000)' required><a id="bc" class="btn input-sm" style="border:0;border-radius:0px 2px 2px 0px; background-color: white;" onclick="scan()"><span class=" glyphicon glyphicon-barcode"></span></a></input>
-						<p><span for="isbn" id="message"></span>
-						<p></p>
-						<button id="continue" type="submit" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-search"></span> Search ISBN </button>
-						<button id="reset" type="reset" class="btn btn-sm">Reset</button>
+						<!-- <label class="control-label" for="isbn">Enter ISBN</label> -->
+						<!-- <br/><div class="controls"> -->
+						<div>
+						<!-- <label  for="isbn"></label> -->
+						<input style="border: 0; border-radius:0;" type="text" class="input-sm" name="isbn" id='isbn' placeholder='Enter ISBN' required><!-- <button id="bc" type="button" class="btn btn-sm" style="border:0;border-radius:0; background-color: white;" onclick="scan()"><span class=" glyphicon glyphicon-barcode"></span></button>--></input> 
+						</div><p><span for="isbn" id="message"></span></p><br>
+						<button id="continue" type="submit" class="btn btn-primary btn-large"><span class="glyphicon glyphicon-search"></span> Continue </button>
+						<button type="reset" class="btn btn-small">Reset</button>
 					</div>
-
-
+					<!-- </div> -->
 				</fieldset>
 			</form>
 		  <!-- <div id="error"> -->
@@ -278,8 +94,9 @@
 			</form>
 			<!-- </div>
 			</div>  -->
- </div>
 
+ </div>
+<hr>
 		<div id="wait" class= "modal-wait">Loading...</div>
 		<!-- Modal -->
 		<div id="myModal" class="modal fade bg-3" role="dialog">
@@ -305,7 +122,7 @@
 					</div>
 				</div>
 			    <div class="modal-footer">
-					<button class="btn btn-success" type="button" id="accept" onclick="accept()" data-dismiss="modal">Accept</button>
+					<button class="btn btn-default" type="button" id="accept" onclick="accept()" data-dismiss="modal">Accept</button>
 			        </div>
 			    </div>
 			</div>
@@ -317,38 +134,11 @@
 			<div class='table-scrollable'>
 				<table class="table table-bordered" >
 				<caption id="caption" class="bg-3">Bibliographic details about the requested books</caption>
-				<thead id="headers"><tr><th></th></th><th>Cover</th><th>Bibliographic Details</th><!-- <th>Author</th><th>Publisher</th><th>Edition</th><th>Year</th><th>ISBN</th><th>Worldcat version</th> --></tr></thead>
+				<thead id="headers"><tr><th></th></th><th>Cover</th><th>Title</th><th>Author</th><th>Publisher</th><th>Edition</th><th>Year</th><th>ISBN</th><th>Worldcat version</th></tr></thead>
 				<tbody id="results"></tbody>
 				</table>
 			</div>
-			<!-- <form id="requesterDetails" role="form" class="form">
-				<fieldset>
-					<div class="control-group">
-						<div class="form-group">
-							<div class="controls">
-							<label>Requester Name*:&nbsp; </label><input type="text" class="input-large" name='name' id='Name' placeholder='Enter Name'><br/></div>
-							<div class="controls"><label>Requester Email*:&nbsp;</label><input type="email" class="input-large" name='email' id='Email' placeholder='Enter verfiable email'></div>
-						</div>
-					</div>
-				</fieldset>
-			</form> -->
-			<button class="btn btn-small" id="dnld-btn" disabled="" onclick="generatePDF()">Download as PDF</button>
-		</div>
-<!-- Second Container --><a name="why"></a>
-		<!-- <div class="container-fluid bg-2 text-center" id="why">
-		  <h3 class="margin">Why?</h3>
-		  <p>This service has been developed to smoothify the process of putting library requests.</p>
-		  		</div>		 -->
-<div id="editsettings" class="modal fade bg-3" role="dialog">
-		  <div class="modal-dialog">
-		    <!-- Modal content-->
-		    <div class="modal-content">
-			    <div class="modal-header">
-			        <button type="button" class="close" data-dismiss="modal">&times;</button>
-			        <h4 class="modal-title">Settings</h4>
-			    </div>
-			    <div class="modal-body">
-					<form id="requesterDetails" role="form" class="form">
+			<form id="requesterDetails" role="form" class="form">
 				<fieldset>
 					<div class="control-group">
 						<div class="form-group">
@@ -359,44 +149,72 @@
 					</div>
 				</fieldset>
 			</form>
-				</div>
-			    <div class="modal-footer">
-					<button class="btn btn-success" type="button" data-dismiss="modal">Close</button>
-			        </div>
-			    </div>
-			</div>
+			<button class="btn btn-small" id="dnld-btn" disabled="" onclick="generatePDF()">Download as PDF</button>
 		</div>
-<!-- Footer -->
-	<footer class="container-fluid text-center">
-	<hr>
-	  <p>Developed with <span class="glyphicon glyphicon-heart"></span> for the LIS community by Vinit Kumar<a href="https://www.bujhansi.org/frmViewCampusFacultyProfile.aspx?FacultyID=4" target="_blank"><br/>About Vinit</a></p>
-	</footer>
-	<script type="text/javascript">
-		function scan(){
-	 		console.log("clicked");
-	 		cordova.plugins.barcodeScanner.scan(function(result){
-	 		//success callback
-	 		if (result.cancelled == false){
-			 isbn= ""+result.text;
-	 		 console.log(isbn);
-	 		 getdata(isbn);
-	 		 // $('#myForm').submit(function(){
-	 		 // 	preventDefault();
-	 		 // getdata(isbn);
-	 			// });
-			} else {
-				alert("scanning cancelled");
-			}	 		//alert(f1);
-	 		//$('#isbn').val(f);
-	 		},function(error){
-	 		//error callback
-	 		alert(JSON.stringify(error));
+<!-- Second Container --><a name="why"></a>
+		<div class="container-fluid bg-2 text-center" id="why">
+		  <h3 class="margin">Why?</h3>
+		  <p>This service has been developed to smoothify the process of putting library requests.</p>
+		  <!-- <a href="#" class="btn btn-default btn-lg">
+		    <span class="glyphicon glyphicon-search"></span> Search
+		  </a> -->
+		</div>
 
-	 		});
-	 		// $('#myForm').show();
-	 		// $('#error').hide();
-	 		}
-		 </script>
-		 <script type="text/javascript" src="js/savepdf.js"></script>
+<!-- Third Container (Grid) --><a name="help"></a>
+		<br>
+		<!-- <!-- <h2>What our users say</h2> -->
+		<!-- <div id="testimonials" class="carousel slide text-center" data-ride="carousel"> -->
+		    <!-- <!-- Indicators --> -->
+		    <!-- <ol class="carousel-indicators"> -->
+		      <!-- <li data-target="#testimonials" data-slide-to="0" class="active"></li> -->
+		      <!-- <li data-target="#testimonials" data-slide-to="1"></li> -->
+		      <!-- <li data-target="#testimonials" data-slide-to="2"></li> -->
+		    <!-- </ol> -->
+
+		    <!-- <!-- Wrapper for slides --> -->
+		    <!-- <div class="carousel-inner" role="listbox"> -->
+		      <!-- <div class="item active"> -->
+		        <!-- <h4>"This service makes the request for purchase of books so easy. I am so happy with this service!"<br><span style="font-style:normal;">Dr D.K. Bhatt, Bundelkhand Univeristy, Jhansi</span></h4> -->
+		      <!-- </div> -->
+		      <!-- <div class="item"> -->
+		        <!-- <h4>"One word... WOW!!"<br><span style="font-style:normal;">Dr. J Sridevi, Deputy Librarian, Bundelkhand Univeristy, Jhansi</span></h4> -->
+		      <!-- </div> -->
+		      <!-- <div class="item"> -->
+		        <!-- <h4>"A very much required service ... "<br><span style="font-style:normal;">Dr Shamim Ansari, Bundelkhand University, Jhansi</span></h4> -->
+		      <!-- </div> -->
+		    <!-- </div> -->
+
+		    <!-- <!-- Left and right controls --> -->
+		    <!-- <a class="left carousel-control" href="#testimonials" role="button" data-slide="prev"> -->
+		      <!-- <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> -->
+		      <!-- <span class="sr-only">Previous</span> -->
+		    <!-- </a> -->
+		    <!-- <a class="right carousel-control" href="#testimonials" role="button" data-slide="next"> -->
+		      <!-- <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> -->
+		      <!-- <span class="sr-only">Next</span> -->
+		    <!-- </a> -->
+		<!-- </div> -->
+		<!-- <div class="container-fluid bg-3 text-center" id="recentRequests" >
+		<h3 class="margin">Recent requests</h3><br>
+		  <div class="row">
+		    <div class="col-sm-4">
+		      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+		      <img src="" class="img-responsive margin img-rounded" style="width:100%" alt="Image">
+		    </div>
+		    <div class="col-sm-4">
+		      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+		      <img src="" class="img-responsive margin img-rounded" style="width:100%" alt="Image">
+		    </div>
+		    <div class="col-sm-4">
+		      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+		      <img src="" class="img-responsive margin img-rounded" style="width:100%" alt="Image">
+		    </div>
+		  </div>
+		</div> -->
+
+<!-- Footer -->
+	<footer class="container-fluid bg-4 text-center">
+	  <p>Developed with <span class="glyphicon glyphicon-heart"></span> for the LIS community by Dr. Vinit Kumar<a href="https://www.bujhansi.org/frmViewCampusFacultyProfile.aspx?FacultyID=4" target="_blank"><br/>About Vinit</a></p>
+	</footer>
 </body>
 </html>

@@ -21,10 +21,10 @@ $(document).ready(function(){
 		},
 	    messages: {
 	    	isbn: {
-	    		minlength: jQuery.format('ISBN contains minimum 10 characters, please check if you are missing some number'),
-				maxlength: "oops!, ISBN isn't longer than {0} characters, please check if a digit is repeated",
-	        	required: "This field is required. ISBN is used as seed to fetch bibliographic data",
-	       		pattern: "ISBN begins with a numeral and usually of 10 or 13 characters size"
+	    		minlength: jQuery.format('  ISBN contains minimum 10 characters, please check if you are missing some number'),
+				maxlength: "  oops!, ISBN isn't longer than {0} characters, please check if a digit is repeated",
+	        	required: "  This field is required. ISBN is used as seed to fetch bibliographic data",
+	       		pattern: "  ISBN begins with a numeral and usually of 10 or 13 characters size"
 	    	},
 	    	// Name: {
 	    	// 	required: "Please enter your name",
@@ -35,12 +35,10 @@ $(document).ready(function(){
 	    	// 	pattern: "Please enter a valid email address."
 	    	// },
 	    },
-	    errorPlacement: function(error, element) {
-		     error.appendTo('#message');
-		   },
 	    highlight: function(label) {
-	    	//$(label).addClass('glyphicon');
+	    	$(label).addClass('glyphicon glyphicon-remove');
 	    	$(label).closest('.control-group').addClass('error');
+	    	$('#message').addClass('error');
 	    },
 	    success: function(label) {
 	    	$(label).addClass('glyphicon glyphicon-ok');
@@ -53,7 +51,7 @@ $(document).ready(function(){
 	    rules: {	
 	    	name: {
 		    	required: true,
-		    pattern: /^([a-zA-Z]+[,.]?[ ]?|[a-zA-Z]+['-]?)+$/
+		    pattern: /^[a-zA-Z]+$/
 		    },
 		    email: {
 		    	required: true,
@@ -76,7 +74,6 @@ $(document).ready(function(){
         }
     });
 	$('#myForm input').on('keyup blur', function () { // fires on every keyup & blur
-		$('#bc').hide();
         if ($('#myForm input').valid()) {                   // checks form for validity
            $('#continue').prop('disabled', false);
         } else {
