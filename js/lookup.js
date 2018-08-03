@@ -36,7 +36,7 @@ $(document).ready( function (){
 					year = "" + data.list[0].year;
 					url = "" + data.list[0].url;
 					lang = "" + data.list[0].lang;
-					cover = "" + 'http://covers.openlibrary.org/b/isbn/'+isbn+'-M.jpg';
+					cover = "" + 'https://cors-anywhere.herokuapp.com/http://covers.openlibrary.org/b/isbn/'+isbn+'-M.jpg';
 					$("#approved").html("<tr><td><img src='"+cover+"' alt='cover'/></td><td><strong>"+title+"</strong></td><td>"+author+"</td><td>"+publisher+"</td><td>"+ed+"</td><td>"+year+"</td><td>"+isbn+"</td></tr>");
 					//$("#forApproval").html("<p><br/><b>Title: </b>"+title+"<br/><b>Author: </b>"+author+"<br/><b>Publisher: </b>"+publisher+"<br/><b>Editor: </b>"+ed+"<br/><b>Year: </b>"+year+"<br/><b>ISBN: </b>"+isbn+"<br/></p>");
     				$("#forApproval").html("<tr><td><b>Title: </b></td><td>"+title+"</td></tr><tr><td><b>Author: </b></td><td>"+author+"</td></tr><tr><td><b>Publisher: </b></td><td>"+publisher+"</td></tr><tr><td><b>Editor: </b></td><td>"+ed+"</td></tr><tr><td><b>Year: </b></td><td>"+year+"</td></tr><tr><td><b>ISBN: </b></td><td>"+isbn+"</td></tr>");
