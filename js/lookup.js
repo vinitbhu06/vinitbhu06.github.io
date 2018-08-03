@@ -18,6 +18,7 @@ $(document).ready( function (){
 		$.ajax({
 			beforeSend: function() { $('#wait').show(); },
 			url: queryUrl,
+			headers: {"My-First-Header":"Origin",  "My-Second-Header":"X-Requested-With"},
 			dataType: "jsonp",
 			jsonp : 'callback',
 			complete: function() {  $('#wait').hide(); },
