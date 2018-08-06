@@ -16,12 +16,12 @@ $(document).ready( function (){
 		isbn = $('#isbn').val();
 		var queryUrl = "https://cors-anywhere.herokuapp.com/http://xisbn.worldcat.org/webservices/xid/isbn/"+isbn+"?method=getMetadata&format=json&fl=*";
 		$.ajax({
-			beforeSend: function(xhr){xhr.setRequestHeader('X-Test-Header', 'Origin');}, function() { $('#wait').show(); }, 
+			beforeSend: function(xhr){xhr.setRequestHeader('X-Test-Header', 'test-value');}, function() { $('#wait').show(); }, 
 			//setHeader: "Access-Control-Allow-Origin: *",
 			url: queryUrl,
 			type: "GET",
 			// headers: {'Origin', 'X-Requested-With'},
-			dataType: "jsonp",
+			dataType: "json",
 			jsonp : 'callback',
 			complete: function() {  $('#wait').hide(); },
 			success: function(data) {
