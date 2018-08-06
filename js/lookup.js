@@ -16,7 +16,7 @@ $(document).ready( function (){
 		isbn = $('#isbn').val();
 		var queryUrl = "https://cors-anywhere.herokuapp.com/http://xisbn.worldcat.org/webservices/xid/isbn/"+isbn+"?method=getMetadata&format=json&fl=*";
 		$.ajax({
-			beforeSend: function() { $('#wait').show(); }, setHeader: "Origin",
+			beforeSend: function() { $('#wait').show(); }, setHeader: "Access-Control-Allow-Origin: *",
 			url: queryUrl,
 			// headers: {'Origin', 'X-Requested-With'},
 			dataType: "jsonp",
