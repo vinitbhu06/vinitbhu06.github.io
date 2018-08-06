@@ -19,6 +19,7 @@ $(document).ready( function (){
 			beforeSend: function(xhr){xhr.setRequestHeader('X-Test-Header', 'Origin');}, function() { $('#wait').show(); }, 
 			//setHeader: "Access-Control-Allow-Origin: *",
 			url: queryUrl,
+			type: "GET",
 			// headers: {'Origin', 'X-Requested-With'},
 			dataType: "jsonp",
 			jsonp : 'callback',
