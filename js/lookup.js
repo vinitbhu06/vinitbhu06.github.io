@@ -17,7 +17,7 @@ $(document).ready( function (){
 		var queryUrl = "https://cors-anywhere.herokuapp.com/http://xisbn.worldcat.org/webservices/xid/isbn/"+isbn+"?method=getMetadata&format=json&fl=*";
 		$.ajax({
 			beforeSend: function (data) {
-			data.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+			data.setRequestHeader('X-Requested-With', 'Origin');
 			}
 			});
 		$.ajax({
