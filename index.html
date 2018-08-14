@@ -132,7 +132,7 @@
 
 		<div class="container-fluid bg-3" id="fromxisbn">
 			<div class='table-scrollable'>
-				<table class="table table-bordered" >
+				<table class="table table-bordered" id="DataTableId">
 				<caption id="caption" class="bg-3">Bibliographic details about the requested books</caption>
 				<thead id="headers"><tr><th></th></th><th>Cover</th><th>Title</th><th>Author</th><th>Publisher</th><th>Edition</th><th>Year</th><th>ISBN</th><th>Worldcat version</th></tr></thead>
 				<tbody id="results"></tbody>
@@ -150,6 +150,8 @@
 				</fieldset>
 			</form>
 			<button class="btn btn-small" id="dnld-btn" disabled="" onclick="generatePDF()">Download as PDF</button>
+			<iframe id="txtArea1" style="display:none"></iframe>
+			<button class="btn btn-small" id="btnExport" onclick="fnExcelReport();"> Download as XL </button>
 		</div>
 <!-- Second Container --><a name="why"></a>
 		<div class="container-fluid bg-2 text-center" id="why">
